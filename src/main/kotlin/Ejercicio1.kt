@@ -8,27 +8,28 @@ import kotlin.math.*
 
 fun main() {
 
+    println("Ingresa la letra de la función que quieras usar" +
+            "\nSeno (S)\nCoseno (C)\nTangente (T)\nExponencial (E)\nLogaritmo (L)")
+    val operacion = readLine().toString()
+
     print("Ingresa el valor numérico: ")
-    val n = readLine()!!.toInt()
+    val digito = readLine()!!.toInt()
     println()
-    println("Ingresa la función a aplicar\nSeno (s)\nCoseno (c)\nTangente (t)\nExponencial (e)\nLogaritmo (l)")
-    val o = readLine().toString()
-
-    calculator(o, n)
 
 
+    calculadora(operacion, digito)
 }
 
-fun calculator(ope: String, value: Int) {
+fun calculadora(ope: String, dig: Int) {
 
-    for (i in 1..value) {
+    for (i in 1..dig) {
         val v=
             when (ope) {
-                "s" -> sin(i.toDouble())
-                "c" -> cos(i.toDouble())
-                "t" -> tan(i.toDouble())
-                "e" -> exp(i.toDouble())
-                "l" -> ln(i.toDouble())
+                "S" -> sin(i.toDouble())
+                "C" -> cos(i.toDouble())
+                "T" -> tan(i.toDouble())
+                "E" -> exp(i.toDouble())
+                "L" -> ln(i.toDouble())
                 else -> 0.0
             }
         if(v<0){

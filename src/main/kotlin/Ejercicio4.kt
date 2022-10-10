@@ -6,17 +6,17 @@ devuelva otro diccionario con las asignaturas en mayúsculas y las calificacione
  */
 
 fun main() {
-    val kardex: Map<String, Int> = mapOf(
-        "matematicas" to 50, "geografia" to 73, "español" to 80, "quimica" to 93, "historia" to 99
+    val calificaciones: Map<String, Int> = mapOf(
+        "fisica" to 70, "filosofia" to 86, "psicologia" to 47, "historia" to 100, "algebra" to 71, "biologia" to 95
     )
-    println(calif(kardex))
+    println(calcularNota(calificaciones))
 
 }
 
-fun calif(notas: Map<String, Int>): Map<String, String> {
-    val des: MutableMap<String, String> = mutableMapOf()
-    for ((k, v) in notas) {
-        val d = when (v) {
+fun calcularNota(notas: Map<String, Int>): Map<String, String> {
+    val listaConMaterias: MutableMap<String, String> = mutableMapOf()
+    for ((mat, cal) in notas) {
+        val notaFinal = when (cal) {
             in 0..69 -> "Desempeño insuficiente"
             in 70..74 -> "Suficiente"
             in 75..84 -> "Bueno"
@@ -24,7 +24,7 @@ fun calif(notas: Map<String, Int>): Map<String, String> {
             in 95..100 -> "Excelente"
             else -> " "
         }
-        des[k.uppercase()] = d
+        listaConMaterias[mat.uppercase()] = notaFinal
     }
-    return des
+    return listaConMaterias
 }

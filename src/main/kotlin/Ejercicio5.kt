@@ -17,7 +17,7 @@ Zona A: precio = (metros * 1000 + habitaciones * 5000 + garaje * 15000) * (1-ant
 Zona B: precio = (metros * 1000 + habitaciones * 5000 + garaje * 15000) * (1-antiguedad/100) * 1.5
  */
 fun main() {
-    val houses = listOf(
+    val casas = listOf(
         House(2000, 100, 3, true, 'A'),
         House(2011, 60, 2, true, 'B'),
         House(1980, 120, 4, false, 'A'),
@@ -25,7 +25,7 @@ fun main() {
         House(2015, 90, 2, false, 'A')
     )
 
-    println(price(houses, 250000000.0))
+    println(price(casas, 250000000.0))
 }
 
 class House(var y: Int, var m: Int, var h: Int, var g: Boolean, var z: Char)

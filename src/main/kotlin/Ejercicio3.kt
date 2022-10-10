@@ -25,6 +25,5 @@ fun calcularCalificacion(list: List<Int>): MutableList<String> {
         }
     }
     return a
-
 }
 
