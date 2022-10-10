@@ -19,36 +19,35 @@ Zona B: precio = (metros * 1000 + habitaciones * 5000 + garaje * 15000) * (1-ant
 fun main() {
     val casas = listOf(
         House(2000, 100, 3, true, 'A'),
-        House(2011, 60, 2, true, 'B'),
         House(1980, 120, 4, false, 'A'),
-        House(2005, 75, 3, true, 'B'),
         House(2015, 90, 2, false, 'A')
     )
 
-    println(price(casas, 250000000.0))
+    println(price(casas, 350000000.0))
 }
 
 class House(var y: Int, var m: Int, var h: Int, var g: Boolean, var z: Char)
 
-fun price(houses: List<House>, price: Double): List<Pair<String, Double>> {
+fun price(casas: List<House>, precio: Double): List<Pair<String, Double>> {
     val priceHouses: MutableList<Pair<String, Double>> = mutableListOf()
     var p = 0.0
-    for (i in houses.indices) {
-        if (houses[i].z == 'A') {
-            p = if (houses[i].g) {
-                ((houses[i].m * 1000 + houses[i].h * 5000 + 15000) * (2022 - houses[i].y / 100)).toDouble()
+    for (i in casas.indices) {
+        if (casas[i].z == 'A') {
+            p = if (casas[i].g) {
+                ((casas[i].m * 1000 + casas[i].h * 5000 + 15000) * (2022 - casas[i].y / 100)).toDouble()
             } else {
-                ((houses[i].m * 1000 + houses[i].h * 5000) * (2022 - houses[i].y / 100)).toDouble()
+                ((casas[i].m * 1000 + casas[i].h * 5000) * (2022 - casas[i].y / 100)).toDouble()
             }
-        } else if (houses[i].z == 'B') {
-            p = if (houses[i].g) {
-                (houses[i].m * 1000 + houses[i].h * 5000 + 15000) * (2022 - houses[i].y / 100) * 1.5
+        } else if (casas[i].z == 'B') {
+            p = if (casas[i].g) {
+                (casas[i].m * 1000 + casas[i].h * 5000 + 15000) * (2022 - casas[i].y / 100) * 1.5
             } else {
-                (houses[i].m * 1000 + houses[i].h * 5000) * (2022 - houses[i].y / 100) * 1.5
+                (casas[i].m * 1000 + casas[i].h * 5000) * (2022 - casas[i].y / 100) * 1.5
             }
         }
-        if (p <= price) {
-            val cad= "Habitaciones: "+houses[i].h.toString()+", "+"Año: "+houses[i].y.toString()+", "+"Garage: "+houses[i].g.toString()+", "+"Zona: "+houses[i].z.toString()+", "+"Metros: "+houses[i].m.toString()
+        if (p <= precio) {
+            val cad= "Habitaciones: "+casas[i].h.toString()+", "+"Año: "+casas[i].y.toString()+", "+"Garage: " +
+                    ""+casas[i].g.toString()+", "+"Zona: "+casas[i].z.toString()+", "+"Metros: "+casas[i].m.toString()+"\n"
             priceHouses.add(Pair(cad, p))
         }
     }

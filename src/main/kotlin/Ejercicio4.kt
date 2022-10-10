@@ -17,11 +17,11 @@ fun calcularNota(notas: Map<String, Int>): Map<String, String> {
     val listaConMaterias: MutableMap<String, String> = mutableMapOf()
     for ((mat, cal) in notas) {
         val notaFinal = when (cal) {
-            in 0..69 -> "Desempeño insuficiente"
-            in 70..74 -> "Suficiente"
-            in 75..84 -> "Bueno"
-            in 85..94 -> "Notable"
-            in 95..100 -> "Excelente"
+            in 0..69 -> "Desempeño insuficiente\n"
+            in 70..74 -> "Suficiente\n"
+            in 75..84 -> "Bueno\n"
+            in 85..94 -> "Notable\n"
+            in 95..100 -> "Excelente\n"
             else -> " "
         }
         listaConMaterias[mat.uppercase()] = notaFinal
